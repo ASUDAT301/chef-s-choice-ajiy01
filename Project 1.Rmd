@@ -4,10 +4,14 @@ output: html_document
 ---
 
 ```{r}
+library(tidyverse)
+library(dplyr)
 
 ```
 
 ```{r}
+crime <- read_csv("~/Desktop/DAT 301/chef-s-choice-ajiy01/data/NSW_Crime_Data.csv")
+crime
 
 ```
 
