@@ -10,7 +10,7 @@ library(dplyr)
 ```
 
 ```{r}
-crime <- read_csv("~/Desktop/DAT 301/chef-s-choice-ajiy01/data/us_crime_rates.csv")
+crime <- read_csv("data/us_crime_rates.csv")
 crime
 
 ```
