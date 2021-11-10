@@ -24,10 +24,23 @@ crime %>%
 ```{r}
 crime1 <- data.frame(x=crime$year,
                 y = c(crime$violent, crime$property),
-                group = c(rep("violent", nrow(crime)),
-                          rep("property", nrow(crime))))
+                group = c(rep("violent", ncol(crime)),
+                          rep("property", ncol(crime))))
 
-ggplot(crime1, aes(x,y,col=group)) + geom_line() + scale_x_continuous(breaks=seq(1960,2020,4)) + scale_y_continuous(breaks=seq(0,50000000,1000000)) + labs(x="Years", y="Number of Crimes", title="Violent and Property Crimes By Year")
+ggplot(crime1, aes(x,y,col=group)) + geom_line() + scale_x_continuous(breaks=seq(1960,2020,5)) + scale_y_continuous(breaks=seq(0,50000000,1000000)) + labs(x="Years", y="Number of Crimes", title="Violent and Property Crimes By Year") + facet_grid(group~.)
+```
+```{r}
+crime2 <- data.frame(x=crime$year,
+                y = c(crime$murder, crime$forcible_rape, crime$robbery, crime$aggravated_assault, crime$burglary, crime$larceny_theft, crime$vehicle_theft),
+                group = c(rep("murder", ncol(crime)),
+                          rep("forcible_rape", ncol(crime)),
+                          rep("robbery", ncol(crime)),
+                          rep("aggravated_assault", ncol(crime)),
+                          rep("burglary", ncol(crime)),
+                          rep("larceny_theft", ncol(crime)),
+                          rep("vehicle_theft", ncol(crime))))
+
+ggplot(crime2, aes(x,y,col=group)) + geom_line() + scale_x_continuous(breaks=seq(1960,2020,4)) + labs(x="Years", y="Number of Crimes", title="Crimes By Year") + facet_grid(group~.)
 ```
 
 
