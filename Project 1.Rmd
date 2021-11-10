@@ -17,6 +17,11 @@ crime
 
 
 ```{r}
+crime %>%
+  ggplot(aes(x=year, y=total)) + geom_line() + labs(x = "Year", y="Number of Crimes", title="Total Number of Crimes by Year") + scale_x_continuous(breaks=seq(1960,2020,4))
+
+```
+```{r}
 
 ```
 
