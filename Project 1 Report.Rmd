@@ -4,3 +4,7 @@ output: html_document
 ---
 Ajay Iyer 
 
+
+  There are many days where crimes are being committed across the world. The dataset I chose was to analyze the crime rates in the USA. This dataset was accessed from Openintro.org. The data starts from the year 1960 and goes till 2019. The crimes start with the total and are sorted between violent and property. The subcategories for violent crimes are murder, forcible rape, robbery and aggaravted assault. The subcategories of property crimes are burglary, larceny theft, and vehicle theft. 
+  The first thing I did was load the data and see what I am working with. Next, I created a graph to show the total crimes committed by the year. The first thing I noticed was that the crimes decreased after 1991. So I asked myself "What caused the crimes to decrease after 1991?" 
+  
