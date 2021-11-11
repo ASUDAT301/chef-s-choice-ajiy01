@@ -21,13 +21,14 @@ crime %>%
   ggplot(aes(x=year, y=total)) + geom_line() + labs(x = "Year", y="Number of Crimes", title="Total Number of Crimes by Year") + scale_x_continuous(breaks=seq(1960,2020,4))
 
 ```
+
 ```{r}
 crime1 <- data.frame(x=crime$year,
                 y = c(crime$violent, crime$property),
                 group = c(rep("violent", ncol(crime)),
                           rep("property", ncol(crime))))
 
-ggplot(crime1, aes(x,y,col=group)) + geom_line() + scale_x_continuous(breaks=seq(1960,2020,5)) + scale_y_continuous(breaks=seq(0,50000000,1000000)) + labs(x="Years", y="Number of Crimes", title="Violent and Property Crimes By Year") + facet_grid(group~.)
+ggplot(crime1, aes(x,y,col=group)) + geom_line() + scale_x_continuous(breaks=seq(1960,2020,4)) + scale_y_continuous(breaks=seq(0,50000000,1000000)) + labs(x="Years", y="Number of Crimes", title="Violent and Property Crimes By Year") + facet_grid(group~.)
 ```
 ```{r}
 crime2 <- data.frame(x=crime$year,
@@ -40,7 +41,23 @@ crime2 <- data.frame(x=crime$year,
                           rep("larceny_theft", ncol(crime)),
                           rep("vehicle_theft", ncol(crime))))
 
-ggplot(crime2, aes(x,y,col=group)) + geom_line() + scale_x_continuous(breaks=seq(1960,2020,4)) + labs(x="Years", y="Number of Crimes", title="Crimes By Year") + facet_grid(group~.)
+ggplot(crime2, aes(x,y,color=group)) + geom_line() + scale_x_continuous(breaks=seq(1960,2020,4)) + labs(x="Years", y="Number of Crimes", title="Types of Crimes By Year") + facet_grid(group~.)
+```
+```{r}
+crime3 <- crime %>%
+  mutate(total_no_agg = total-aggravated_assault) %>%
+  mutate(total_no_mu = total-murder) %>%
+  mutate(total_no_for = total-forcible_rape) %>%
+  mutate(total_no_rob = total-robbery) %>%
+  mutate(total_no_bur = total-burglary) %>%
+  mutate(total_no_lar = total-larceny_theft) %>%
+  mutate(total_no_veh = total-vehicle_theft)
+
+crime3
+```
+```{r}
+
+
 ```
 
 
